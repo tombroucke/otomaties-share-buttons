@@ -1,0 +1,20 @@
+{
+    "name": "tombroucke/otomaties-share-buttons",
+    "autoload": {
+        "psr-4": {
+            "Otomaties\\ShareButtons\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Tom Broucke",
+            "email": "tom@tombroucke.be",
+            "homepage": "https://tombroucke.be"
+        }
+    ],
+    "keywords": ["wordpress", "plugin", "social", "buttons", "facebook", "twitter", "linkedin"],
+    "type": "wordpress-plugin",
+    "require": {
+      "composer/installers": "^1.0"
+    }
+}
