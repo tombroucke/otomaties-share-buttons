@@ -85,6 +85,11 @@ class Frontend
         wp_localize_script($this->pluginName, 'otomaties_share_buttons_vars', [
             'popup_width' => get_option('otomaties_share_buttons_popup_width') ?: 600,
             'popup_height' => get_option('otomaties_share_buttons_popup_height') ?: 400,
+            'display_copy_alert' => get_option('otomaties_share_buttons_copy_alert'),
+            'strings' => [
+                'copied_link' => apply_filters('otomaties_share_buttons_string_copied_link', __('Copied link to clipboard', 'otomaties-share-buttons')),
+                'copy_link_error' => apply_filters('otomaties_share_buttons_string_copy_link_error', __('An error occured while copying the link to your clipboard', 'otomaties-share-buttons')),
+            ]
         ]);
     }
 
@@ -144,14 +149,20 @@ class Frontend
                 'title' => __('Share on email', 'otomaties-share-buttons'),
                 'popup' => false,
             ],
+            'copy_link'     => [
+                'icon' => '<i class="fa fa-link"></i>',
+                'link' => '%s',
+                'title' => __('Copy link', 'otomaties-share-buttons'),
+                'popup' => false,
+            ],
         ];
 
         if (!array_key_exists($type, $mapping)) {
             return false;
         }
         
-        $class = apply_filters('otomaties_share_buttons_container_class', sprintf('share-buttons__button share-buttons__button-%1$s', $type), $type);
-        $button = sprintf('<div class="%s"><a href="%s" class="js-share-buttons__popup">%s</a></div>', $class, sprintf($mapping[$type]['link'], get_permalink()), $mapping[$type]['icon']);
+        $class = apply_filters('otomaties_share_buttons_button_class', sprintf('share-buttons__button share-buttons__button-%1$s', $type), $type);
+        $button = sprintf('<div class="%s"><a href="%s" class="%s">%s</a></div>', $class, sprintf($mapping[$type]['link'], get_permalink()),$mapping[$type]['popup'] ? 'js-share-buttons__popup' : '', apply_filters('otomaties_share_buttons_button_icon', $mapping[$type]['icon'], $type));
         return apply_filters('otomaties_share_buttons_button', $button);
     }
 }

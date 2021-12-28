@@ -89,7 +89,7 @@ module.exports = (env, argv) => ({
 	}),
 	new BrowserSyncPlugin({
 		port: 3000,
-		proxy: 'https://levl.local',
+		proxy: 'https://example.local',
 	}),
 	new StyleLintPlugin({
 		failOnError: argv.mode === 'production' ? true : false,

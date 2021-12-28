@@ -108,6 +108,7 @@ class Admin
         register_setting('otomaties_share_buttons_settings', 'otomaties_share_buttons_hook');
         register_setting('otomaties_share_buttons_settings', 'otomaties_share_buttons_popup_width');
         register_setting('otomaties_share_buttons_settings', 'otomaties_share_buttons_popup_height');
+        register_setting('otomaties_share_buttons_settings', 'otomaties_share_buttons_copy_alert');
     }
 
     public function settings()
@@ -123,19 +124,22 @@ class Admin
                             <th scope="row"><?php _e('Social Media Buttons', 'otomaties-share-buttons'); ?></th>
                             <td>
                                 <label>
-                                    <input type="checkbox" name="otomaties_share_buttons[facebook]" value="1"<?php checked(isset(get_option('otomaties_share_buttons')['facebook'])); ?> /> Facebook
+                                    <input type="checkbox" name="otomaties_share_buttons[facebook]" value="1" <?php checked(isset(get_option('otomaties_share_buttons')['facebook'])); ?> /> <?php _e('Facebook', 'otomaties-share-buttons'); ?>
                                 </label><br />
                                 <label>
-                                    <input type="checkbox" name="otomaties_share_buttons[linkedin]" value="1"<?php checked(isset(get_option('otomaties_share_buttons')['linkedin'])); ?> /> Linkedin
+                                    <input type="checkbox" name="otomaties_share_buttons[linkedin]" value="1" <?php checked(isset(get_option('otomaties_share_buttons')['linkedin'])); ?> /> <?php _e('Linkedin', 'otomaties-share-buttons'); ?>
                                 </label><br />
                                 <label>
-                                    <input type="checkbox" name="otomaties_share_buttons[twitter]" value="1"<?php checked(isset(get_option('otomaties_share_buttons')['twitter'])); ?> /> Twitter
+                                    <input type="checkbox" name="otomaties_share_buttons[twitter]" value="1" <?php checked(isset(get_option('otomaties_share_buttons')['twitter'])); ?> /> <?php _e('Twitter', 'otomaties-share-buttons'); ?>
                                 </label><br />
                                 <label>
-                                    <input type="checkbox" name="otomaties_share_buttons[pinterest]" value="1"<?php checked(isset(get_option('otomaties_share_buttons')['pinterest'])); ?> /> Pinterest
+                                    <input type="checkbox" name="otomaties_share_buttons[pinterest]" value="1" <?php checked(isset(get_option('otomaties_share_buttons')['pinterest'])); ?> /> <?php _e('Pinterest', 'otomaties-share-buttons'); ?>
                                 </label><br />
                                 <label>
-                                    <input type="checkbox" name="otomaties_share_buttons[email]" value="1"<?php checked(isset(get_option('otomaties_share_buttons')['email'])); ?> /> E-mail
+                                    <input type="checkbox" name="otomaties_share_buttons[email]" value="1" <?php checked(isset(get_option('otomaties_share_buttons')['email'])); ?> /> <?php _e('E-mail', 'otomaties-share-buttons'); ?>
+                                </label><br />
+                                <label>
+                                    <input type="checkbox" name="otomaties_share_buttons[copy_link]" value="1" <?php checked(isset(get_option('otomaties_share_buttons')['copy_link'])); ?> /> <?php _e('Copy link', 'otomaties-share-buttons'); ?>
                                 </label>
                             </td>
                         </tr>
@@ -143,7 +147,7 @@ class Admin
                             <th scope="row"><?php _e('Show buttons in overview', 'otomaties-share-buttons'); ?></th>
                             <td>
                                 <label>
-                                    <input type="checkbox" name="otomaties_share_buttons_show_in_overview" value="1"<?php checked(get_option('otomaties_share_buttons_show_in_overview')); ?> /> <?php _e('Show in overview', 'otomaties-share-buttons'); ?>
+                                    <input type="checkbox" name="otomaties_share_buttons_show_in_overview" value="1" <?php checked(get_option('otomaties_share_buttons_show_in_overview')); ?> /> <?php _e('Show in overview', 'otomaties-share-buttons'); ?>
                                 </label>
                             </td>
                         </tr>
@@ -157,7 +161,7 @@ class Admin
                             $post_types = get_post_types($args);
                             foreach ($post_types as $id => $type) : ?>
                                 <label>
-                                    <input type="checkbox" name="otomaties_share_buttons_post_type[<?php echo $id; ?>]" value="1"<?php checked(isset(get_option('otomaties_share_buttons_post_type')[$id])); ?> /> <?php echo $type; ?>
+                                    <input type="checkbox" name="otomaties_share_buttons_post_type[<?php echo $id; ?>]" value="1" <?php checked(isset(get_option('otomaties_share_buttons_post_type')[$id])); ?> /> <?php echo $type; ?>
                                 </label><br />
                             <?php endforeach; ?>
                             </td>
@@ -181,6 +185,12 @@ class Admin
                             <td>
                                 <input type="number" name="otomaties_share_buttons_popup_height" value="<?php echo get_option('otomaties_share_buttons_popup_height'); ?>">
                                 <p class="description" id="otomaties_share_buttons_popup_height-description"><?php _e('In px. Defaults to 400', 'otomaties-share-buttons'); ?></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><?php _e('Display alert after copying link', 'otomaties-share-buttons'); ?></th>
+                            <td>
+                                <input type="checkbox" name="otomaties_share_buttons_copy_alert" value="1" <?php checked(get_option('otomaties_share_buttons_copy_alert')); ?>>
                             </td>
                         </tr>
                     </table>
