@@ -15,6 +15,6 @@
     "keywords": ["wordpress", "plugin", "social", "buttons", "facebook", "twitter", "linkedin"],
     "type": "wordpress-plugin",
     "require": {
-      "composer/installers": "^1.0"
+      "composer/installers": "^1.0 || ^2.0"
     }
 }
