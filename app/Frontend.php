@@ -81,7 +81,7 @@ class Frontend
          * class.
          */
 
-        wp_enqueue_script($this->pluginName, Assets::find('js/main.js'), array( 'jquery' ), null, true);
+        wp_enqueue_script($this->pluginName, Assets::find('js/main.js'), [], null, true);
         wp_localize_script($this->pluginName, 'otomaties_share_buttons_vars', [
             'popup_width' => get_option('otomaties_share_buttons_popup_width') ?: 600,
             'popup_height' => get_option('otomaties_share_buttons_popup_height') ?: 400,
@@ -162,7 +162,7 @@ class Frontend
         }
         
         $class = apply_filters('otomaties_share_buttons_button_class', sprintf('share-buttons__button share-buttons__button-%1$s', $type), $type);
-        $button = sprintf('<div class="%s"><a href="%s" class="%s">%s</a></div>', $class, sprintf($mapping[$type]['link'], get_permalink()),$mapping[$type]['popup'] ? 'js-share-buttons__popup' : '', apply_filters('otomaties_share_buttons_button_icon', $mapping[$type]['icon'], $type));
+        $button = sprintf('<div class="%s"><a href="%s" class="%s">%s</a></div>', $class, sprintf($mapping[$type]['link'], get_permalink()), $mapping[$type]['popup'] ? 'js-share-buttons__popup' : '', apply_filters('otomaties_share_buttons_button_icon', $mapping[$type]['icon'], $type));
         return apply_filters('otomaties_share_buttons_button', $button);
     }
 }

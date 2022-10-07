@@ -94,8 +94,5 @@ module.exports = (env, argv) => ({
 	new StyleLintPlugin({
 		failOnError: argv.mode === 'production' ? true : false,
 	}),
-	],
-	externals: {
-		jquery: 'jQuery'
-	}
+	]
 });
