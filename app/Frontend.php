@@ -95,10 +95,11 @@ class Frontend
 
     public function renderButtons(string $content = '', bool $echo = false)
     {
-        if (!isset(get_option('otomaties_share_buttons_post_type')[get_post_type()])) {
+        $supportedPostTypes =  array_filter((array)get_option('otomaties_share_buttons_post_type'));
+        if (!array_key_exists(get_post_type(), $supportedPostTypes)) {
             return $content;
         }
-        if (!is_single() && !get_option('otomaties_share_buttons_show_in_overview')) {
+        if (!is_singular(get_post_type()) && !get_option('otomaties_share_buttons_show_in_overview')) {
             return $content;
         }
         if (!empty(get_option('otomaties_share_buttons'))) {
