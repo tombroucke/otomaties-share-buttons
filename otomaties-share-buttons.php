@@ -21,7 +21,7 @@ if (! defined('WPINC')) {
 
 // Autoload files
 if (file_exists(__DIR__ . '/vendor/autoload.php')) {
-    require_once('vendor/autoload.php');
+    require_once realpath(__DIR__ . '/vendor/autoload.php');
 }
 
 // Setup / teardown
