@@ -150,6 +150,12 @@ class Frontend
                 'title' => __('Share on email', 'otomaties-share-buttons'),
                 'popup' => false,
             ],
+            'whatsapp'     => [
+                'icon' => '<i class="fa fa-whastapp"></i>',
+                'link' => 'whatsapp://send?text=%s',
+                'title' => __('Share over WhatsApp', 'otomaties-share-buttons'),
+                'popup' => false,
+            ],
             'copy_link'     => [
                 'icon' => '<i class="fa fa-link"></i>',
                 'link' => '%s',

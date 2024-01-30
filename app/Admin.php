@@ -139,6 +139,9 @@ class Admin
                                     <input type="checkbox" name="otomaties_share_buttons[email]" value="1" <?php checked(isset(get_option('otomaties_share_buttons')['email'])); ?> /> <?php _e('E-mail', 'otomaties-share-buttons'); ?>
                                 </label><br />
                                 <label>
+                                    <input type="checkbox" name="otomaties_share_buttons[whatsapp]" value="1" <?php checked(isset(get_option('otomaties_share_buttons')['whatsapp'])); ?> /> <?php _e('WhatsApp', 'otomaties-share-buttons'); ?>
+                                </label><br />
+                                <label>
                                     <input type="checkbox" name="otomaties_share_buttons[copy_link]" value="1" <?php checked(isset(get_option('otomaties_share_buttons')['copy_link'])); ?> /> <?php _e('Copy link', 'otomaties-share-buttons'); ?>
                                 </label>
                             </td>
