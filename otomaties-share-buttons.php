@@ -5,7 +5,7 @@ namespace Otomaties\ShareButtons;
 /**
  * Plugin Name:       Otomaties Share Buttons
  * Description:       Display sharing buttons on posts, pages and custom post types
- * Version:           1.0.4
+ * Version:           1.1.0
  * Author:            Tom Broucke
  * Author URI:        https://tombroucke.be/
  * License:           GPL-2.0+
