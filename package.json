@@ -10,7 +10,7 @@
   "author": "Tom Broucke <tom@tombroucke.be>",
   "license": "MIT",
   "dependencies": {
-    "stylelint": "^14.0.1"
+    "stylelint": "^16.1.0"
   },
   "devDependencies": {
     "assets-webpack-plugin": "^7.1.1",
