@@ -132,10 +132,10 @@ class Frontend
                 'title' => __('Share on linkedin', 'otomaties-share-buttons'),
                 'popup' => true,
             ],
-            'twitter'   => [
-                'icon' => '<i class="fab fa-twitter"></i>',
-                'link' => 'https://twitter.com/intent/tweet?text=%s',
-                'title' => __('Share on twitter', 'otomaties-share-buttons'),
+            'x'   => [
+                'icon' => '<i class="fab fa-x"></i>',
+                'link' => 'https://x.com/intent/post?text=%25s',
+                'title' => __('Share on x', 'otomaties-share-buttons'),
                 'popup' => true,
             ],
             'pinterest' => [

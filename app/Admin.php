@@ -130,7 +130,7 @@ class Admin
                                     <input type="checkbox" name="otomaties_share_buttons[linkedin]" value="1" <?php checked(isset(get_option('otomaties_share_buttons')['linkedin'])); ?> /> <?php _e('Linkedin', 'otomaties-share-buttons'); ?>
                                 </label><br />
                                 <label>
-                                    <input type="checkbox" name="otomaties_share_buttons[twitter]" value="1" <?php checked(isset(get_option('otomaties_share_buttons')['twitter'])); ?> /> <?php _e('Twitter', 'otomaties-share-buttons'); ?>
+                                    <input type="checkbox" name="otomaties_share_buttons[x]" value="1" <?php checked(isset(get_option('otomaties_share_buttons')['x'])); ?> /> <?php _e('x', 'otomaties-share-buttons'); ?>
                                 </label><br />
                                 <label>
                                     <input type="checkbox" name="otomaties_share_buttons[pinterest]" value="1" <?php checked(isset(get_option('otomaties_share_buttons')['pinterest'])); ?> /> <?php _e('Pinterest', 'otomaties-share-buttons'); ?>
