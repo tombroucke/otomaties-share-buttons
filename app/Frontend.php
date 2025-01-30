@@ -42,27 +42,6 @@ class Frontend
     }
 
     /**
-     * Register the stylesheets for the public-facing side of the site.
-     *
-     */
-    public function enqueueStyles()
-    {
-
-        /**
-         * This function is provided for demonstration purposes only.
-         *
-         * An instance of this class should be passed to the run() function
-         * defined in Loader as all of the hooks are defined
-         * in that particular class.
-         *
-         * The Loader will then create the relationship
-         * between the defined hooks and the functions defined in this
-         * class.
-         */
-        wp_enqueue_style($this->pluginName, Assets::find('css/main.css'), array(), null);
-    }
-
-    /**
      * Register the JavaScript for the public-facing side of the site.
      *
      */
@@ -96,12 +75,16 @@ class Frontend
     public function renderButtons(string $content = '', bool $echo = false)
     {
         $supportedPostTypes =  array_filter((array)get_option('otomaties_share_buttons_post_type'));
-        if (!array_key_exists(get_post_type(), $supportedPostTypes)) {
+        $postType = get_post_type();
+
+        if (!array_key_exists($postType, $supportedPostTypes)) {
             return $content;
         }
-        if (!is_singular(get_post_type()) && !get_option('otomaties_share_buttons_show_in_overview')) {
+
+        if (!is_singular($postType) && !get_option('otomaties_share_buttons_show_in_overview')) {
             return $content;
         }
+
         if (!empty(get_option('otomaties_share_buttons'))) {
             $content .= sprintf('<div class="%s">', apply_filters('otomaties_share_buttons_container_class', 'share-buttons'));
             foreach (get_option('otomaties_share_buttons') as $socialMediaName => $value) {
@@ -109,6 +92,7 @@ class Frontend
             }
             $content .= '</div>';
             $content = apply_filters('otomaties_share_buttons_output', $content);
+
             if ($echo) {
                 echo $content;
             } else {

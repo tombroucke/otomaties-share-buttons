@@ -2,9 +2,5 @@
   "main": {
     "css": "css/main.min.css",
     "js": "js/main.2bb10692950b380a8724.js"
-  },
-  "admin": {
-    "css": "css/admin.min.css",
-    "js": "js/admin.31d6cfe0d16ae931b73c.js"
   }
 }

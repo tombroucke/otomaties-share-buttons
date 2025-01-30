@@ -10,7 +10,6 @@ const TerserPlugin = require('terser-webpack-plugin');
 module.exports = (env, argv) => ({
 	entry: {
 		main: './assets/js/main.js',
-		admin: './assets/js/admin.js',
 	},
 	output: {
 		path: __dirname + '/public',

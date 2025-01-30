@@ -6,12 +6,12 @@ class JsonManifest
 
     private $manifest;
 
-    public function __construct($manifest_path)
+    public function __construct($manifestPath)
     {
-        if (file_exists($manifest_path)) {
-            $this->manifest = json_decode(file_get_contents($manifest_path), true);
+        if (file_exists($manifestPath)) {
+            $this->manifest = json_decode(file_get_contents($manifestPath), true);
         } else {
-            $this->manifest = array();
+            $this->manifest = [];
         }
     }
 

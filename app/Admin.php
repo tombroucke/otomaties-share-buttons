@@ -40,50 +40,6 @@ class Admin
         $this->pluginName = $pluginName;
         $this->version = $version;
     }
-
-    /**
-     * Register the stylesheets for the admin area.
-     *
-     */
-    public function enqueueStyles()
-    {
-
-        /**
-         * This function is provided for demonstration purposes only.
-         *
-         * An instance of this class should be passed to the run() function
-         * defined in Loader as all of the hooks are defined
-         * in that particular class.
-         *
-         * The Loader will then create the relationship
-         * between the defined hooks and the functions defined in this
-         * class.
-         */
-
-        // wp_enqueue_style($this->pluginName, Assets::find('css/admin.css'), array(), $this->version, 'all');
-    }
-
-    /**
-     * Register the JavaScript for the admin area.
-     *
-     */
-    public function enqueueScripts()
-    {
-
-        /**
-         * This function is provided for demonstration purposes only.
-         *
-         * An instance of this class should be passed to the run() function
-         * defined in Loader as all of the hooks are defined
-         * in that particular class.
-         *
-         * The Loader will then create the relationship
-         * between the defined hooks and the functions defined in this
-         * class.
-         */
-
-        // wp_enqueue_script($this->pluginName, Assets::find('js/admin.js'), [], $this->version, false);
-    }
     
     public function addSettingsPage()
     {
@@ -161,10 +117,9 @@ class Admin
                             $args = array(
                                 'public' => true
                             );
-                            $post_types = get_post_types($args);
-                            foreach ($post_types as $id => $type) : ?>
+                            foreach (get_post_types($args) as $id => $type) : ?>
                                 <label>
-                                    <input type="checkbox" name="otomaties_share_buttons_post_type[<?php echo $id; ?>]" value="1" <?php checked(isset(get_option('otomaties_share_buttons_post_type')[$id])); ?> /> <?php echo $type; ?>
+                                    <input type="checkbox" name="otomaties_share_buttons_post_type[<?php echo esc_html($id); ?>]" value="1" <?php checked(isset(get_option('otomaties_share_buttons_post_type')[$id])); ?> /> <?php echo esc_html($type); ?>
                                 </label><br />
                             <?php endforeach; ?>
                             </td>
@@ -205,8 +160,8 @@ class Admin
 
     public function addSettingsLink($links)
     {
-        $settings_link = '<a href="options-general.php?page=otomaties-share-buttons">' . __('Settings', 'otomaties-share-buttons') . '</a>';
-        array_push($links, $settings_link);
+        $settingsLink = sprintf('<a href="options-general.php?page=otomaties-share-buttons">%s</a>',  __('Settings', 'otomaties-share-buttons'));
+        array_push($links, $settingsLink);
         return $links;
     }
 }

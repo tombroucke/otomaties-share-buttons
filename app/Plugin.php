@@ -78,8 +78,6 @@ class Plugin
     private function defineAdminHooks()
     {
         $admin = new Admin($this->getPluginName(), $this->getVersion());
-        // $this->loader->add_action('admin_enqueue_scripts', $admin, 'enqueueStyles');
-        // $this->loader->add_action('admin_enqueue_scripts', $admin, 'enqueueScripts');
         $this->loader->add_action('admin_menu', $admin, 'addSettingsPage');
         $this->loader->add_action('admin_init', $admin, 'registerSettings');
         $this->loader->add_filter('plugin_action_links_' . plugin_basename(__FILE__), $admin, 'addSettingsLink');
@@ -93,11 +91,11 @@ class Plugin
     private function defineFrontendHooks()
     {
         $frontend = new Frontend($this->getPluginName(), $this->getVersion());
-        // $this->loader->add_action('wp_enqueue_scripts', $frontend, 'enqueueStyles');
         $this->loader->add_action('wp_enqueue_scripts', $frontend, 'enqueueScripts');
 
         $hook = get_option('otomaties_share_buttons_hook');
-        if ($hook && '' != $hook) {
+        
+        if (!empty($hook)) {
             add_action($hook, function () use ($frontend) {
                 $frontend->renderButtons('', true);
             }, 999);
